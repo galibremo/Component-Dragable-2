@@ -47,7 +47,7 @@ const SamplePage = () => {
                     const distX = Math.abs(item.x - newPos.x);
                     const distY = Math.abs(item.y - newPos.y);
 
-                    if (distX <= 65 && distY <= 65) {
+                    if (distX <= 50 && distY <= 50) {
                         newState[key as keyof PosState] = { ...prevState[itemKey as keyof PosState] };
                         newState[itemKey as keyof PosState] = { ...item };
 
@@ -72,9 +72,17 @@ const SamplePage = () => {
         <MainCard title="Tree">
             <Container
                 maxWidth={false}
-                sx={{ height: '60vh', bgcolor: 'lightcyan', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                sx={{
+                    height: '60vh',
+                    bgcolor: 'lightcyan',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'relative'
+                }}
             >
                 <Draggable
+                    bounds="parent"
                     onDrag={updateXarrow}
                     position={posi.item1}
                     onStop={(e, data) => {
@@ -101,6 +109,7 @@ const SamplePage = () => {
                     </Grid>
                 </Draggable>
                 <Draggable
+                    bounds="parent"
                     onDrag={updateXarrow}
                     position={posi.item2}
                     onStop={(e, data) => {
@@ -127,6 +136,7 @@ const SamplePage = () => {
                     </Grid>
                 </Draggable>
                 <Draggable
+                    bounds="parent"
                     onDrag={updateXarrow}
                     position={posi.item3}
                     onStop={(e, data) => {
@@ -153,6 +163,7 @@ const SamplePage = () => {
                     </Grid>
                 </Draggable>
                 <Draggable
+                    bounds="parent"
                     onDrag={updateXarrow}
                     position={posi.item4}
                     onStop={(e, data) => {
@@ -179,6 +190,7 @@ const SamplePage = () => {
                     </Grid>
                 </Draggable>
                 <Draggable
+                    bounds="parent"
                     onDrag={updateXarrow}
                     position={posi.item5}
                     onStop={(e, data) => {
